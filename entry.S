@@ -1,5 +1,3 @@
-#include <asm/csr.h>
-
 #if __riscv_xlen == 64
 #define STORE sd
 #define LOAD ld
@@ -10,7 +8,7 @@
 #define LOAD lw
 #define LOG_REGBYTES  2
 #define WORD .word
-#endif 
+#endif
 
 #define LWU lwu
 #define REGBYTES (1<<LOG_REGBYTES)

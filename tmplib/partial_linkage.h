@@ -1,4 +1,4 @@
-#include <asm/linkage.h>
+#include <common.h>
 
 #define ASM_NL           ;
 #define ALIGN __ALIGN

@@ -1,7 +1,4 @@
-#include <linux/linkage.h>
-#include <asm/asm.h>
-#include <asm/csr.h>
-
+#include "common.h"
 	.altmacro
 	.macro fixup op reg addr lbl
 	LOCAL _epc

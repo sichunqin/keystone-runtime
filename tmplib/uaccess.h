@@ -1,6 +1,5 @@
 #ifndef _UACCESS_H_
 #define _UACCESS_H_
-#include <asm/asm.h>
 #include <asm/csr.h>
 
 /* This is a limited set of the features from linux uaccess, only the

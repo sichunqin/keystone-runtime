@@ -1,5 +1,3 @@
-#include <asm/csr.h>
-
 #include "printf.h"
 #include "interrupt.h"
 #include "syscall.h"
@@ -49,7 +47,7 @@ remap_kernel_space(uintptr_t runtime_base,
   assert(runtime_size <= RISCV_GET_LVL_PGSIZE(2));
   #elif __riscv_xlen == 32
   assert(runtime_size <= RISCV_GET_LVL_PGSIZE(1));
-  #endif 
+  #endif
 
   map_with_reserved_page_table(runtime_base, runtime_size,
      runtime_va_start, kernel_l2_page_table, kernel_l3_page_table);

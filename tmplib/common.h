@@ -1,18 +1,5 @@
-/*
- * Copyright (C) 2015 Regents of the University of California
- *
- *   This program is free software; you can redistribute it and/or
- *   modify it under the terms of the GNU General Public License
- *   as published by the Free Software Foundation, version 2.
- *
- *   This program is distributed in the hope that it will be useful,
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *   GNU General Public License for more details.
- */
-
-#ifndef _ASM_RISCV_ASM_H
-#define _ASM_RISCV_ASM_H
+#ifndef _UACESS_COMMON_H
+#define _UACESS_COMMON_H
 
 #ifdef __ASSEMBLY__
 #define __ASM_STR(x)	x
@@ -73,4 +60,18 @@
 #error "Unexpected __SIZEOF_SHORT__"
 #endif
 
-#endif /* _ASM_RISCV_ASM_H */
+#define SR_SUM	_AC(0x00040000, UL) /* Supervisor may access User Memory */
+
+#ifdef __ASSEMBLY__
+#define _AC(X,Y)	X
+#define _AT(T,X)	X
+#else
+#define __AC(X,Y)	(X##Y)
+#define _AC(X,Y)	__AC(X,Y)
+#define _AT(T,X)	((T)(X))
+#endif
+
+#define __ALIGN		.balign 4
+#define __ALIGN_STR	".balign 4"
+
+#endif /* _UACESS_COMMON_H */
