@@ -35,6 +35,10 @@ void* setup_start(void* _sp, ELF(Ehdr) *hdr) {
 
   void** sp = (void**)_sp;
 
+if (memcmp(hdr->e_ident, "\177ELF", 4) != 0) {
+    goto done;
+}
+
 #ifdef ENV_SETUP
   int h;
   ELF(Phdr) *phdr;
@@ -110,6 +114,7 @@ void* setup_start(void* _sp, ELF(Ehdr) *hdr) {
 
 #endif /* ENV_SETUP */
 
+done:
   // Fully setup, tell them to use this SP instead of the given one
   return sp;
 
