@@ -35,9 +35,9 @@ void* setup_start(void* _sp, ELF(Ehdr) *hdr) {
 
   void** sp = (void**)_sp;
 
-if (memcmp(hdr->e_ident, "\177ELF", 4) != 0) {
+  if(memcmp(hdr->e_ident, "\177ELF", 4) != 0) {
     goto done;
-}
+  }
 
 #ifdef ENV_SETUP
   int h;
